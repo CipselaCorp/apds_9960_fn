@@ -27,7 +27,7 @@ basic.pause(10)
 }
 function Control () {
     let u = getreg_LUX(APDS9960_CONTROL)
-    u |= 0b00000111
+    u |= 0b00000001
 setreg_lux(APDS9960_CONTROL, u)
     basic.pause(10)
 }
@@ -65,7 +65,7 @@ function getreg_LUX (reg: number) {
 }
 function PowerOn () {
     let t = getreg_LUX(APDS9960_ENABLE)
-    t |= 0b00011111
+    t |= 0b00011011
     setreg_lux(APDS9960_ENABLE, t)
     basic.pause(10)
 }
