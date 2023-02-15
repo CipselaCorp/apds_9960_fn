@@ -27,7 +27,7 @@ basic.pause(10)
 }
 function Control () {
     let u = getreg_LUX(APDS9960_CONTROL)
-    u |= 0b00000011
+    u |= 0b00001010
 setreg_lux(APDS9960_CONTROL, u)
     basic.pause(10)
 }
@@ -123,6 +123,6 @@ let illuminance = 0
             if (illuminance < 0) illuminance = Math.abs(illuminance)
         }
         //basic.showNumber(illuminance)
-        return illuminance
+        return b
     }
 }
