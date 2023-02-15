@@ -113,7 +113,7 @@ let illuminance = 0
         let LH = getUInt16BE_LUX(APDS9960_AILTH);
         let HL = getUInt16BE_LUX(APDS9960_AIHTL);
   
-        let c = getUInt16BE_LUX(APDS9960_CDATAL);
+        let c = getUInt16BE_LUX(APDS9960_CDATAH);
         basic.pause(10)
         if ((c >= TH + LH) || (c <= TL + HL)) {
             let r = getUInt16BE_LUX(APDS9960_RDATAH);
