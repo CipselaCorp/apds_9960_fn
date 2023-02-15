@@ -65,7 +65,7 @@ function getreg_LUX (reg: number) {
 }
 function PowerOn () {
     let t = getreg_LUX(APDS9960_ENABLE)
-    t |= 0b00010011
+    t |= 0b00011011
     setreg_lux(APDS9960_ENABLE, t)
     basic.pause(10)
 }
@@ -116,13 +116,13 @@ let illuminance = 0
         let c = getUInt16BE_LUX(APDS9960_CDATAL);
         basic.pause(10)
         if ((c >= TH + LH) || (c <= TL + HL)) {
-            let r = getUInt16BE_LUX(APDS9960_RDATAL);
-            let g = getUInt16BE_LUX(APDS9960_GDATAL);
-            let d = getUInt16BE_LUX(APDS9960_BDATAL);
+            let r = getUInt16BE_LUX(APDS9960_RDATAH);
+            let g = getUInt16BE_LUX(APDS9960_GDATAH);
+            let d = getUInt16BE_LUX(APDS9960_BDATAH);
             illuminance = (-0.32466 * r) + (1.57837 * g) + (-0.73191 * b);
             if (illuminance < 0) illuminance = Math.abs(illuminance)
         }
         //basic.showNumber(illuminance)
-        return b
+        return illuminance
     }
 }
