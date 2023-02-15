@@ -96,6 +96,7 @@ const APDS9960_BDATAL = 154
 const APDS9960_BDATAH = 155
 let buf = pins.createBuffer(2);
 
+//% color=#4c6ef5 weight=25 icon="\uf043" block="APDS9960"
 namespace CIP_APDS9960 {
 init();
 let illuminance = 0
