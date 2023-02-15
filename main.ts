@@ -120,7 +120,7 @@ let illuminance = 0
             let g = getUInt16BE_LUX(APDS9960_GDATAL);
             let d = getUInt16BE_LUX(APDS9960_BDATAL);
             illuminance = (-0.32466 * r) + (1.57837 * g) + (-0.73191 * b);
-            if (illuminance < 0) illuminance = Math.abs(illuminance)
+            //if (illuminance < 0) illuminance = Math.abs(illuminance)
         }
         //basic.showNumber(illuminance)
         return illuminance
