@@ -9,6 +9,14 @@ function get16BE_LUX (reg: number) {
     return pins.i2cReadNumber(APDS9960_I2C_ADDR, NumberFormat.UInt16LE, false)
 }
 
+function trunc_lux(x: number, posiciones: number): number {
+    let s = x.toString()
+    let l = s.length
+    let decimalLength = s.indexOf('.') + 1
+    let numStr = s.substr(0, decimalLength + posiciones)
+    return parseFloat(numStr)
+}
+
 function getUInt16BE_LUX (reg: number) {
     pins.i2cWriteNumber(
     APDS9960_I2C_ADDR,
@@ -123,6 +131,6 @@ let illuminance = 0
             if (illuminance < 0) illuminance = Math.abs(illuminance) 
         }
         //basic.showNumber(illuminance)
-        return illuminance
+        return trunc_lux(illuminance, 2)
     }
 }
