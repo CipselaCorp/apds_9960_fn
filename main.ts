@@ -123,6 +123,6 @@ let illuminance = 0
             if (illuminance < 0) illuminance = Math.abs(illuminance)
         }
         //basic.showNumber(illuminance)
-        return illuminance
+        return b
     }
 }
